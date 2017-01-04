@@ -1,0 +1,2 @@
+class MembersRoom < ApplicationRecord
+end

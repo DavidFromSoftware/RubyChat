@@ -1,0 +1,19 @@
+<ul class="messages">
+  <% if message.user.name == current_user.name %>
+    <li class="i">
+      <div class="head">
+          <span class="time"><%= message.timestamp %></span>
+          <span class="name"><%= message.user.name %></span>
+        </div>
+      <div class="message"><%= message.body %></div>
+    </li>
+  <% else %>
+    <li class="friend-with-a-SVAGina">
+      <div class="head">
+        <span class="name"><%= message.user.name %></span>
+        <span class="time"><%= message.timestamp %></span>
+      </div>
+      <div class="message"><%= message.body %></div>
+    </li>
+  <% end %>
+</ul>
