@@ -331,9 +331,11 @@
 				</div>
 				<i class="fa fa-star"></i>
 			</div>
-			<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-				<%= render @chat_room.messages %>
-			</div>
+			<% if @chat_room %>
+				<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+					<%= render @chat_room.messages %>
+				</div>
+			<% end %>
 			<%= form_for @message, url: '#' do |f| %>
 			  <div class="form-group write-form"">
 			    <%= f.text_area :body, class: 'form-control message_body', id: "texxt" %>
@@ -344,3 +346,8 @@
 			<% end %>
 		</div>
 	</div>
+	<% if user_signed_in? %>
+	  <li>
+	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+	  </li>
+	<% end %>
